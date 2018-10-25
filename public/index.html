@@ -1,17 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>sjlm</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but sjlm doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/static/newtuan2/js/index20180828.js?v={{now}}" type="text/javascript" charset="utf-8">
+  </script>
+  <script>
+    var infoid = '{{ info.id }}', shareid = '{{info.shareid}}', music = '{{info.music}}', myName = "{{info.uname}}", orgName = "{{info.dpname}}", aesEn = '{{wxhttp}}/mmwk/sjlm/sjlm999id={{id}}99shareid={{info.shareid}}', memberHeardUrl = "";
+  </script>
+  <script type="text/javascript">
+    function autoScroll(obj) {
+      $(obj).find("ul").animate({
+        marginTop: "-=0.6rem"
+      }, function () {
+        $(this).css({
+          marginTop: "0px"
+        }).find("li:first").appendTo(this);
+      })
+    }
+    function tishi() {
+      //点击右上角分享到朋友圈
+      $('#app1').show();
+      $('#fx_box').show();
+      $('#mubu1').show();
+    }
+    $(function () {
+      setInterval('autoScroll("#scrollBox")', 500);
+    });
+    document.addEventListener("WeixinJSBridgeReady", function () {
+      console.log("WeixinJSBridgeReady")
+      document.getElementById('myAudio').play();
+    }, false);
+  </script>
+</body>
+
 </html>
